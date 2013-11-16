@@ -1,0 +1,28 @@
+# more info at http://taggi/FAQ/Filtering_email
+# more info at http://taggi.cse.unsw.edu.au/FAQ/Using_maildir
+
+# not sure why I want this
+PATH=/usr/bin:/usr/local/bin
+SHELL=/bin/sh
+#VERBOSE=on
+
+# where to log stuff
+LOGFILE=${HOME}/.mailfilterlog
+
+# where my mail folders (not inbox) are
+#MAILDIR=${HOME}/mail
+MAILDIR=${HOME}/Maildir
+
+# where mail goes by default
+#DEFAULT=${HOME}/.incoming-mail
+DEFAULT=${MAILDIR}/
+
+# man procmailex
+# prevents duplicates
+:0 Wh: ${HOME}/.msgcache.lock
+| formail -D 8192 ${HOME}/.msgcache
+
+# forwards cse discussion to dave
+:0c
+* ^TO_cse-discussion@cse.unsw.edu.au
+! davidc@cse.unsw.edu.au
