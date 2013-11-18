@@ -3,7 +3,13 @@ $include  /etc/inputrc
 set completion-ignore-case on
 set bell-style none
 $if mode=emacs
-# mappings for "up" and "down" to search the history
-"\e[A": history-search-backward
-"\e[B": history-search-forward
+# mappings for "page up" and "page down" to search the history
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
 $endif
+set show-all-if-ambiguous on
+set visible-stats on
+set page-completions off
+# zsh-style completion
+#TAB: menu-complete
+#"\e[Z": "\e-1\C-i"
