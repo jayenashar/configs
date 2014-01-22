@@ -27,4 +27,5 @@ if [ -n "$DISPLAY" ]; then
   xset b off
 fi
 
-export LESS="${LESS} -R -i"
+export LESS="${LESS} -FRXi"
+export LESSCHARSET=${LESSCHARSET-utf-8}

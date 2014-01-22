@@ -80,7 +80,6 @@ if [ "$color_prompt" = yes ]; then
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
-unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -90,6 +89,17 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
+if [ "$color_prompt" = yes ]; then
+    PROMPT_COMMAND="EXIT_STATUS=\$?; [[ \$EXIT_STATUS -ne 0 ]] && PS1=\"\[\033[01;31m\]\$EXIT_STATUS\[\033[00m\] $PS1\" || PS1='$PS1'"
+else
+    PROMPT_COMMAND="EXIT_STATUS=\$?; [[ \$EXIT_STATUS -ne 0 ]] && PS1=\"\$EXIT_STATUS $PS1\" || PS1='$PS1'"
+fi
+unset color_prompt force_color_prompt
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
@@ -137,7 +147,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias sshfs='sshfs -o reconnect -o gid=`id -g` -o idmap=user -o allow_root'
+alias sshfs='sshfs -o reconnect -o gid=`id -g` -o idmap=user'
 alias mount.csefs='sshfs -o "ControlPath=/tmp/sshfs.cse" cse: ~/cse'
 alias rm='rm -i'
 alias cp='cp -i'
