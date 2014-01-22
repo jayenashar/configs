@@ -15,6 +15,7 @@ You can copy/merge these files to the same relative location in your home direct
 ### <a name=".bashrc">.bashrc</a> - Configuration file for bash (the bourne again shell)
 
 *   gives a colored prompt
+**   includes the non-zero exit status of the last command
 *   colorizes the output of grep and ls
 *   gives you the shortcut wcc for compiling with -Wall -Werror
 *   gives you the shortcut mcc for compiling with mudflap and -Wall -Werror
@@ -53,7 +54,7 @@ You can copy/merge these files to the same relative location in your home direct
 *   loads your .bashrc, if you are running bash and you have a .bashrc
 *   prepends ~/bin to your path, if you have ~/bin
 *   disables beeps if you are logging into a graphical display
-*   sets less (a file viewer) to allow colors and allow you to search case-insensitively
+*   sets less (a file viewer) to allow colors, default to search case-insensitively, and display utf-8 characters
 
 #### Special Installation Instructions
 
