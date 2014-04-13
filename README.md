@@ -11,6 +11,7 @@ You can copy/merge these files to the same relative location in your home direct
 *   [.profile](#.profile) - Configuration file for compatible shells' (sh, ash, ksh, bash) login
 *   [.inputrc](#.inputrc) - Initialization file for readline (a library that allow users to edit command lines as they are typed in)
 *   [.vimrc](#.vimrc) - Initialization file for vim (Vi IMproved, a programmers text editor)
+*   [.wgetrc](#.wgetrc) - User startup file for Wget (The non-interactive network downloader)
 
 ### <a name=".bashrc">.bashrc</a> - Configuration file for bash (the bourne again shell)
 
@@ -85,3 +86,11 @@ fi</pre>
 
 *   tab inserts spaces
 *   color syntax highlighting
+
+### <a name=".wgetrc">.wgetrc</a> - User startup file for Wget (The non-interactive network downloader)
+
+*   Turn off verbose without being completely quiet (use -q for that), which means that error messages and basic information still get printed.
+*   no retries
+*   Continue getting a partially-downloaded file.
+*   Turn on time-stamping.
+*   experimental (not fully-functional) support for "Content-Disposition" headers is enabled.  some file-downloading CGI programs use "Content-Disposition" headers to describe what the name of a downloaded file should be.
