@@ -10,7 +10,7 @@ esac
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
-HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+#HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # ... or force ignoredups and ignorespace
 #HISTCONTROL=ignoreboth
 
@@ -55,7 +55,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm*) color_prompt=yes;;
+    xterm*|*-256color) color_prompt=yes;;
     screen*) color_prompt=yes;;
 esac
 
@@ -108,11 +108,16 @@ if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     alias dir='ls --color=auto --format=vertical'
     alias vdir='ls --color=auto --format=long'
 
-    export GREP_OPTIONS='-T --color=auto'
+    alias grep='grep --initial-tab --color=auto'
+    alias fgrep='fgrep --initial-tab --color=auto'
+    alias egrep='egrep --initial-tab --color=auto'
     #found text is green and not red
     export GREP_COLOR='01;32'
     export GREP_COLORS='ms=01;32:mc=01;32:sl=:cx=:fn=35:ln=32:bn=32:se=36'
 fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -AlF'
