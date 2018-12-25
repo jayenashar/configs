@@ -54,6 +54,7 @@ You can copy/merge these files to the same relative location in your home direct
 ### <a name=".profile">.profile</a> - Configuration file for compatible shells' (sh, ash, ksh, bash) login
 
 *   loads your .bashrc, if you are running bash and you have a .bashrc
+*   prepends ~/.local/bin to your path, if you have ~/.local/bin
 *   prepends ~/bin to your path, if you have ~/bin
 *   disables beeps if you are logging into a graphical display
 *   sets less (a file viewer) to allow colors, default to search case-insensitively, and display utf-8 characters
