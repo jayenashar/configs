@@ -29,3 +29,8 @@ fi
 
 export LESS="${LESS} -FRXi"
 export LESSCHARSET=${LESSCHARSET-utf-8}
+
+# for ssh forwarding
+eval `ssh-agent -s`
+ssh-add
+
