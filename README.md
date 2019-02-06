@@ -58,7 +58,7 @@ You can copy/merge these files to the same relative location in your home direct
 *   prepends ~/bin to your path, if you have ~/bin
 *   disables beeps if you are logging into a graphical display
 *   sets less (a file viewer) to allow colors, default to search case-insensitively, and display utf-8 characters
-*   sets up ssh agent, for ssh forwarding
+*   sets up ssh agent, for ssh forwarding (You will also want `.bash_logout` to kill the agent when you logout)
 
 #### Special Installation Instructions
 
