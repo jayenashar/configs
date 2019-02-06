@@ -81,6 +81,13 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 
+if [ "$color_prompt" = yes ]; then
+    PROMPT_COMMAND="EXIT_STATUS=\$?; [[ \$EXIT_STATUS -ne 0 ]] && PS1=\"\[\033[01;31m\]\$EXIT_STATUS\[\033[00m\] $PS1\" || PS1='$PS1'"
+else
+    PROMPT_COMMAND="EXIT_STATUS=\$?; [[ \$EXIT_STATUS -ne 0 ]] && PS1=\"\$EXIT_STATUS $PS1\" || PS1='$PS1'"
+fi
+unset color_prompt force_color_prompt
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -89,13 +96,6 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
-if [ "$color_prompt" = yes ]; then
-    PROMPT_COMMAND="EXIT_STATUS=\$?; [[ \$EXIT_STATUS -ne 0 ]] && PS1=\"\[\033[01;31m\]\$EXIT_STATUS\[\033[00m\] $PS1\" || PS1='$PS1'"
-else
-    PROMPT_COMMAND="EXIT_STATUS=\$?; [[ \$EXIT_STATUS -ne 0 ]] && PS1=\"\$EXIT_STATUS $PS1\" || PS1='$PS1'"
-fi
-unset color_prompt force_color_prompt
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -127,10 +127,6 @@ alias l='ls -CF'
 if type rgrep >/dev/null 2>&1; then
     alias rgrep='grep -r'
 fi
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
