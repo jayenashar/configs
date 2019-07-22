@@ -18,6 +18,11 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+# set PATH so it includes user's local bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
@@ -29,3 +34,8 @@ fi
 
 export LESS="${LESS} -FRXi"
 export LESSCHARSET=${LESSCHARSET-utf-8}
+
+# for ssh forwarding
+eval `ssh-agent -s`
+ssh-add
+

@@ -16,12 +16,13 @@ You can copy/merge these files to the same relative location in your home direct
 ### <a name=".bashrc">.bashrc</a> - Configuration file for bash (the bourne again shell)
 
 *   gives a colored prompt
-**   includes the non-zero exit status of the last command
+    *   includes the non-zero exit status of the last command
 *   colorizes the output of grep and ls
 *   gives you the shortcut wcc for compiling with -Wall -Werror
 *   gives you the shortcut mcc for compiling with mudflap and -Wall -Werror
 *   allows you to do a forward history search with Ctrl-f (you know how Ctrl-r does a backward history search, right?)
 *   stores a large history (without consecutive duplicates)
+*   stores history with date and time stamps
 *   make less more friendly for non-text input files
 *   warns you when losing data with cp, mv, or rm
 *   requires two ctrl-d's to exit a shell, in case you press it accidentally
@@ -53,9 +54,11 @@ You can copy/merge these files to the same relative location in your home direct
 ### <a name=".profile">.profile</a> - Configuration file for compatible shells' (sh, ash, ksh, bash) login
 
 *   loads your .bashrc, if you are running bash and you have a .bashrc
+*   prepends ~/.local/bin to your path, if you have ~/.local/bin
 *   prepends ~/bin to your path, if you have ~/bin
 *   disables beeps if you are logging into a graphical display
 *   sets less (a file viewer) to allow colors, default to search case-insensitively, and display utf-8 characters
+*   sets up ssh agent, for ssh forwarding (You will also want `.bash_logout` to kill the agent when you logout)
 
 #### Special Installation Instructions
 
