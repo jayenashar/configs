@@ -83,7 +83,7 @@ fi</pre>
 
 *   gives case-insensitive tab completion
 *   disables beeps
-*   up and down to search history
+*   page up and page down to search history
 
 ### <a name=".vimrc">.vimrc</a> - Initialization file for vim (Vi IMproved, a programmers text editor)
 
